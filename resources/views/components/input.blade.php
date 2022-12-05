@@ -1,6 +1,6 @@
 <div>
     <div class="form-group">
-        <label for="name">Student Name</label>
-        <input id="name" class="form-control" type="text" name="name">
+        <label for="{{$name}}">{{$label}}</label>
+        <input id="{{$name}}" class="form-control bg-light" type="text" name="{{$name}}" placeholder="{{$placeholder}}">
     </div>
 </div>
