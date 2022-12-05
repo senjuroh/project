@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\frontend\PageController;
+use App\Http\Controllers\student\StudentController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,4 +27,6 @@ Route::get('/gallary/{id}', [PageController::class,'album'])->name('album');
 
 Route::get('/new-student', [PageController::class,'new'])->name('new');
 
-Route::get('/student-details', [PageController::class,'details'])->name('details');
+Route::get('/student-details', [StudentController::class,'index'])->name('details');
+
+Route::post('/student', [StudentController::class,'store']);
