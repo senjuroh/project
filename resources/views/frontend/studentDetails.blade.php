@@ -19,7 +19,11 @@
                             <td>{{$student->address}}</td>
                             <td><span class="badge bg-danger">{{$student->contact}}</span></td>
                             <td>{{$student->course}}</td>
-                            <td>{{$student->email ?? 'N/A'}}</td>
+                            @if ($student->email != null)
+                            <td><a href="mailto:{{$student->email}}"><i class="fa-solid fa-envelope"></i></a> <a href="/student/{{$student->id}}/edit">edit</a></td>
+                            @else
+                            <td><i class="fa-regular fa-face-frown text-danger"></i> <a href="/student/{{$student->id}}/edit">edit</a></td>
+                            @endif
                         </tr>
                     @endforeach
                 </table>
