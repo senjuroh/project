@@ -21,10 +21,10 @@
                             <td>{{$student->course}}</td>
                             @if ($student->email != null)
                             <td>
-                                <form action="/student/{{$student->id}}" method="post">
+                                <form action="{{route('student.destroy', [$student->id])}}" method="post">
                                     @csrf
                                     @method('delete')
-                                <a href="mailto:{{$student->email}}"><i class="fa-solid fa-envelope"></i></a> <a href="/student/{{$student->id}}/edit">edit</a>
+                                <a href="mailto:{{$student->email}}"><i class="fa-solid fa-envelope"></i></a> <a href="{{route('student.edit', [$student->id])}}">edit</a>
                                 <button type="submit"><i class="fa-solid fa-trash text-danger"></i></button>
                             </form>
 
@@ -32,10 +32,10 @@
                             </td>
                             @else
                             <td>
-                                <form action="/student/{{$student->id}}" method="post">
+                                <form action="{{route('student.destroy', [$student->id])}}" method="post">
                                     @csrf
                                     @method('delete')
-                                    <i class="fa-regular fa-face-frown text-danger"></i> <a href="/student/{{$student->id}}/edit">edit</a>
+                                    <i class="fa-regular fa-face-frown text-danger"></i> <a href="{{route('student.edit', [$student->id])}}">edit</a>
                                     <button type="submit"><i class="fa-solid fa-trash text-danger"></i></button>
                                 </form>
 

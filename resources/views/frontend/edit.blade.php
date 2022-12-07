@@ -1,7 +1,7 @@
 <x-template>
     <div class="container">
         <h1>Edit Student</h1>
-        <form action="/student/{{$student->id}}" method="post">
+        <form action="{{route('student.update', [$student->id])}}" method="post">
             @csrf
             @method('put')
             <div class="row">
