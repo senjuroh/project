@@ -20,9 +20,27 @@
                             <td><span class="badge bg-danger">{{$student->contact}}</span></td>
                             <td>{{$student->course}}</td>
                             @if ($student->email != null)
-                            <td><a href="mailto:{{$student->email}}"><i class="fa-solid fa-envelope"></i></a> <a href="/student/{{$student->id}}/edit">edit</a></td>
+                            <td>
+                                <form action="/student/{{$student->id}}" method="post">
+                                    @csrf
+                                    @method('delete')
+                                <a href="mailto:{{$student->email}}"><i class="fa-solid fa-envelope"></i></a> <a href="/student/{{$student->id}}/edit">edit</a>
+                                <button type="submit"><i class="fa-solid fa-trash text-danger"></i></button>
+                            </form>
+
+
+                            </td>
                             @else
-                            <td><i class="fa-regular fa-face-frown text-danger"></i> <a href="/student/{{$student->id}}/edit">edit</a></td>
+                            <td>
+                                <form action="/student/{{$student->id}}" method="post">
+                                    @csrf
+                                    @method('delete')
+                                    <i class="fa-regular fa-face-frown text-danger"></i> <a href="/student/{{$student->id}}/edit">edit</a>
+                                    <button type="submit"><i class="fa-solid fa-trash text-danger"></i></button>
+                                </form>
+
+
+                            </td>
                             @endif
                         </tr>
                     @endforeach
