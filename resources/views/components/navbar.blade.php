@@ -25,7 +25,9 @@
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="{{ route('new') }}">New Student</a></li>
             <li><a class="dropdown-item" href="{{ route('details') }}">Students Details</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
+            <li><a class="dropdown-item" href="{{ route('teacher.create') }}">New Teacher</a></li>
+            <li><a class="dropdown-item" href="{{ route('teacher.index') }}">Teachers Details</a></li>
+            {{-- <li><a class="dropdown-item" href="#">Something else here</a></li> --}}
           </ul>
         </li>
       </ul>

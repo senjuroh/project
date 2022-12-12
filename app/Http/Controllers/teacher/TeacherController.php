@@ -14,9 +14,12 @@ class TeacherController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
+
     {
         $teachers = Teacher::all();
         return view('frontend.teacher.index', compact('teachers'));
+
+
     }
 
     /**
@@ -27,6 +30,7 @@ class TeacherController extends Controller
     public function create()
     {
         return view('frontend.teacher.create');
+        //view referes to frontend view
     }
 
     /**
@@ -42,6 +46,7 @@ class TeacherController extends Controller
         $teacher->address = $request->address;
         $teacher->phone = $request->phone;
         $teacher->save();
+        // return $teacher;
         return redirect()->route('teacher.index');
     }
 
@@ -65,7 +70,7 @@ class TeacherController extends Controller
     public function edit($id)
     {
         $teacher = Teacher::find($id);
-        return view('frontend.teacher.edit', compact('teacher'));
+        return  view('frontend.teacher.edit', compact('teacher'));
     }
 
     /**
@@ -93,6 +98,8 @@ class TeacherController extends Controller
      */
     public function destroy($id)
     {
-        //
+    $teacher = Teacher::find($id);
+    $teacher->delete();
+    return redirect()->route('teacher.index');
     }
 }

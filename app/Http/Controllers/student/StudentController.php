@@ -25,7 +25,7 @@ class StudentController extends Controller
         $student->email = $request->email;
         $student->course = $request->course;
         $student->save();
-        return redirect()->back();
+        return redirect()->route('details');
     }
     public function edit($id)
     {

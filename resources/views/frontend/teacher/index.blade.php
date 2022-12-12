@@ -17,7 +17,14 @@
                             <td>{{$teacher->name}}</td>
                             <td>{{$teacher->address}}</td>
                             <td><span class="badge bg-danger">{{$teacher->phone}}</span></td>
-                            <td><a href="{{route('teacher.edit', $teacher->id)}}">edit</a></td>
+                            <td>
+                            <form action="{{route('teacher.destroy', [$teacher->id])}}" method="post">
+                                @csrf
+                                @method('delete')
+                                <a href="{{route('teacher.edit', $teacher->id)}}" class="mr-2">edit</a>
+                                <button type="submit"><i class="fa-solid fa-trash text-danger"></i></button>
+                            </form>
+                            </td>
                         </tr>
                     @endforeach
                 </table>
